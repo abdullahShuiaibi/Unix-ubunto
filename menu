@@ -1,0 +1,70 @@
+#!/bin/bash
+
+input=0
+
+while [ "$input" != "quit" ]; do
+clear
+echo " Utiltiy Menu "
+if [ "$input" -eq 1 ]
+ then
+ echo "What is the name of the file?"
+ read fname
+ echo "Please provide the data now"
+ read data
+ ./add $data $fname
+ echo "A row was added"
+
+fi
+
+if [ "$input" -eq 2 ]
+ then 
+ echo "What do would you like to delete"
+ read data
+ echo "What is the name of the file"
+ read fname
+ ./delete $data $fname
+ echo "An item was deleted"
+
+fi
+
+if [ "$input" -eq 3 ]
+ then
+ echo "What do would you read "
+ read data
+ echo "In what position"
+ read pos 
+ echo "What is the name of the file"
+ read fname
+ ./reader $data $pos $fname 
+ echo "The item above was read "
+
+fi 
+
+ if [ "$input" -eq 4 ]
+ then
+ echo "What would you like to update "
+ read data
+ echo "What is the new data "
+ read update
+ echo "What is the file name"
+ read fname
+ ./update $data $update $fname
+ echo "An item was updated" 
+
+fi 
+
+if [ "$input" -eq 5 ]
+ then
+ break
+
+fi
+echo ""
+echo " Please choose one of the following"
+echo "1 Insert"
+echo "2 Delete"
+echo "3 read "
+echo "4 update "
+echo "5 quit or [write quit]"
+read input
+done
+echo " goodbye "
